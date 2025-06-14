@@ -1,8 +1,6 @@
-import { NextApiRequest } from "next";
-
 import * as cheerio from "cheerio";
 
-export async function POST(request: NextApiRequest) {
+export async function POST(request: Request) {
   const { conferenceUrl } = await request.json();
 
   if (!conferenceUrl || typeof conferenceUrl !== "string") {
