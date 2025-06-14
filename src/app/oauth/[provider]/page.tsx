@@ -3,7 +3,7 @@
 import { LinkButton } from "@/components/LinkButton";
 import { Card } from "@/components/ui/card";
 import { GAAD } from "@/utils/gaad";
-import { Frown, Loader, LoaderCircle } from "lucide-react";
+import { Frown, LoaderCircle } from "lucide-react";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -16,7 +16,7 @@ export default function OAuth() {
 
   const oauthCode = searchParams.get("code");
   // setupAction is part of the url when GitHub redirects back after saving installation settings
-  const setupAction = searchParams.get("setup_action");
+  // const setupAction = searchParams.get("setup_action");
 
   useEffect(() => {
     if (!oauthCode || !provider) {

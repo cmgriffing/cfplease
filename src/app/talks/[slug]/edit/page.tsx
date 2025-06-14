@@ -1,14 +1,7 @@
 "use client";
 
-import { ConferenceDetailsForm } from "@/components/ConferenceDetailsForm";
 import { TalkDetailsForm } from "@/components/TalkDetailsForm";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { talkSchema, GAAD } from "@/utils/gaad";
 import { useGHaaD } from "@oh-my-ghaad/react";
 import { useParams, useRouter } from "next/navigation";
@@ -38,7 +31,7 @@ export default function EditTalk() {
 
   function onSubmit(values: z.infer<typeof talkSchema>) {
     if (talk?.id) {
-      engine.updateInCollection("talks", talk.id, values).then((talks) => {
+      engine.updateInCollection("talks", talk.id, values).then(() => {
         router.back();
       });
     } else {

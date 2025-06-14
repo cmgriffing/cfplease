@@ -14,28 +14,18 @@ import {
   Calendar,
   Ellipsis,
   Info,
-  Link,
+  Link as LucideLink,
   MapPin,
   Megaphone,
   Pencil,
-  Pin,
   PlusCircle,
-  Settings,
   Trash,
 } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuGroup,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuPortal,
-  DropdownMenuSeparator,
-  DropdownMenuShortcut,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import dayjs from "dayjs";
@@ -44,12 +34,12 @@ import clsx from "clsx";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
 import { useGHaaD } from "@oh-my-ghaad/react";
+import Link from "next/link";
 
 export default function Conferences() {
   const [allConferences, setAllConferences] = useState<
@@ -103,9 +93,9 @@ export default function Conferences() {
       <div className="flex flex-row items-center gap-4">
         <h1 className="text-2xl font-bold">Conferences</h1>
         <Button asChild>
-          <a href="/conferences/new">
+          <Link href="/conferences/new">
             <PlusCircle className="h-6 w-6" />
-          </a>
+          </Link>
         </Button>
       </div>
 
@@ -162,7 +152,7 @@ function ConferenceList({
             No {conferenceType ? `${conferenceType} ` : ""}conferences found
           </p>
           <Button asChild>
-            <a href="/conferences/new">Create Conference</a>
+            <Link href="/conferences/new">Create Conference</Link>
           </Button>
         </Card>
       )}
@@ -212,7 +202,7 @@ function ConferenceCard({
               className="text-blue-500 p-0 h-6 w-6"
             >
               <a href={conference.url} target="_blank">
-                <Link className="h-4 w-4" />
+                <LucideLink className="h-4 w-4" />
               </a>
             </Button>
           </div>
@@ -330,14 +320,14 @@ function ConferenceStatusBadge({
   const variant = hasAcceptedTalks
     ? "success"
     : hasDeclinedTalks
-      ? "destructive"
-      : "outline";
+    ? "destructive"
+    : "outline";
 
   const label = hasAcceptedTalks
     ? "Accepted"
     : hasDeclinedTalks
-      ? "Declined"
-      : "Pending";
+    ? "Declined"
+    : "Pending";
 
   return <Badge variant={variant}>{label}</Badge>;
 }

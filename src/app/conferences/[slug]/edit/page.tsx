@@ -1,13 +1,7 @@
 "use client";
 
 import { ConferenceDetailsForm } from "@/components/ConferenceDetailsForm";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { conferenceSchema, GAAD } from "@/utils/gaad";
 import { useGHaaD } from "@oh-my-ghaad/react";
 import { useParams, useRouter } from "next/navigation";
@@ -42,7 +36,7 @@ export default function EditConference() {
     if (conference?.id) {
       engine
         .updateInCollection("conferences", conference.id, values)
-        .then((conferences) => {
+        .then(() => {
           router.back();
         });
     } else {

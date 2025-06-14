@@ -7,18 +7,7 @@ import { GAAD } from "@/utils/gaad";
 import { useGHaaD } from "@oh-my-ghaad/react";
 import { useEffect, useState } from "react";
 import { Card } from "@/components/ui/card";
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Alert, AlertDescription, AlertTitle } from "./ui/alert";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
@@ -26,19 +15,17 @@ import { toast } from "sonner";
 export function Header() {
   const router = useRouter();
 
-  const [showingInitializeDialog, setShowingInitializeDialog] = useState(false);
   const [isInitializing, setIsInitializing] = useState(false);
   const { engine } = useGHaaD(GAAD);
 
   const adapter = engine.getAdapter();
-  const { repo, owner, baseUrl } = adapter || {
+  const { repo, owner } = adapter || {
     repo: null,
     owner: null,
     baseUrl: null,
   };
 
   const repoName = `${owner}/${repo}`;
-  const repoUrl = `${baseUrl}/${owner}/${repo}`;
 
   const isLoggedIn = Boolean(adapter?.token);
 
@@ -56,12 +43,6 @@ export function Header() {
       engine.sync();
     }
   }, [isLoggedIn, engine.getAdapter()?.repo]);
-
-  useEffect(() => {
-    if (engine.getRepoStatus() === "empty") {
-      setShowingInitializeDialog(true);
-    }
-  }, [engine.getRepoStatus()]);
 
   return (
     <header>

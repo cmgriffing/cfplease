@@ -7,12 +7,7 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-import {
-  conferenceSchema,
-  GAAD,
-  talkCollection,
-  talkSchema,
-} from "@/utils/gaad";
+import { conferenceSchema, GAAD, talkSchema } from "@/utils/gaad";
 import { useGHaaD } from "@oh-my-ghaad/react";
 import {
   DropdownMenu,
@@ -33,7 +28,7 @@ import {
   DialogContent,
   DialogTitle,
 } from "@/components/ui/dialog";
-import router from "next/router";
+import Link from "next/link";
 
 export default function Talks() {
   const [talks, setTalks] = useState<z.infer<typeof talkSchema>[]>([]);
@@ -56,7 +51,7 @@ export default function Talks() {
     engine.fetchCollectionItems("conferences").then((conferences) => {
       setConferences(conferences);
     });
-  }, []);
+  }, [engine]);
 
   useEffect(() => {
     const talkConferenceCountsMap: Record<string, number> = {};
@@ -87,9 +82,9 @@ export default function Talks() {
       <div className="flex flex-row items-center gap-4">
         <h1 className="text-2xl font-bold">Talks</h1>
         <Button asChild>
-          <a href="/talks/new">
+          <Link href="/talks/new">
             <PlusCircle className="h-6 w-6" />
-          </a>
+          </Link>
         </Button>
       </div>
 
@@ -101,7 +96,7 @@ export default function Talks() {
         >
           <p>No talks found</p>
           <Button asChild>
-            <a href="/talks/new">Create Talk</a>
+            <Link href="/talks/new">Create Talk</Link>
           </Button>
         </Card>
       )}

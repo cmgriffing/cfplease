@@ -3,7 +3,6 @@
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import {
-  Card,
   CardContent,
   CardFooter,
   CardHeader,
@@ -22,10 +21,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { conferenceSchema, GAAD } from "@/utils/gaad";
+import { conferenceSchema } from "@/utils/gaad";
 import { RequiredLabel } from "@/components/RequiredLabel";
-import { useGHaaD } from "@oh-my-ghaad/react";
-import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 export function ConferenceDetailsForm({

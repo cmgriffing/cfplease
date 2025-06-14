@@ -12,8 +12,8 @@ export default function Home() {
         </h1>
 
         <p>
-          They're your CFPs and you want 'em now. Never miss a CFP deadline
-          again.'
+          They&apos;re your CFPs and you want &apos;em now. Never miss a CFP
+          deadline again.
         </p>
 
         <div>
@@ -42,8 +42,8 @@ export default function Home() {
         <Card className={"lg:w-1/3! p-4 gap-4 flex flex-col"}>
           <h3 className="font-bold">Track Which Talks You Proposed</h3>
           <p>
-            You have talks you've proposed to conferences. Keep track of which
-            talks you proposed and which talks you didn't.
+            You have talks you&apos;ve proposed to conferences. Keep track of
+            which talks you proposed and which talks you didn&apos;t.
           </p>
         </Card>
       </div>

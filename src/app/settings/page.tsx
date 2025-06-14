@@ -1,6 +1,5 @@
 "use client";
 
-import { LinkButton } from "@/components/LinkButton";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
@@ -9,16 +8,14 @@ import {
   SelectContent,
   SelectGroup,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
 import { GAAD } from "@/utils/gaad";
 import { RepositoryResponse } from "@oh-my-ghaad/core";
 import { useGHaaD } from "@oh-my-ghaad/react";
-import { Cog, LogOut, OctagonAlert } from "lucide-react";
+import { LogOut, OctagonAlert } from "lucide-react";
 import { useRouter } from "next/navigation";
-import router from "next/router";
 import { useEffect, useState } from "react";
 
 export default function Settings() {
@@ -28,13 +25,6 @@ export default function Settings() {
   const { engine } = useGHaaD(GAAD);
 
   const currentAdapter = engine.getAdapter();
-  const { repo, owner, baseUrl } = currentAdapter || {
-    repo: null,
-    owner: null,
-    baseUrl: null,
-  };
-
-  const repoName = `${owner}/${repo}`;
 
   useEffect(() => {
     if (!currentAdapter?.token) {

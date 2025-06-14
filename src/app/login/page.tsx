@@ -3,10 +3,8 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { GAAD } from "@/utils/gaad";
-import { Adapter, IAdapter } from "@oh-my-ghaad/core";
 import { useGHaaD } from "@oh-my-ghaad/react";
 import clsx from "clsx";
-import React, { useState, useEffect } from "react";
 
 export default function Login() {
   const { engine } = useGHaaD(GAAD);

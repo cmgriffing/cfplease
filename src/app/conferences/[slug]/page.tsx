@@ -41,11 +41,6 @@ import {
 import { VariantProps } from "class-variance-authority";
 import Case from "case";
 import { Table, TableCell, TableRow } from "@/components/ui/table";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
 
 export default function Conference() {
   const router = useRouter();
@@ -277,7 +272,7 @@ export default function Conference() {
                 </div>
                 {conference?.proposedTalks.length !== 0 && (
                   <Table>
-                    {conference?.proposedTalks.map((talk, talkIndex) => {
+                    {conference?.proposedTalks.map((talk) => {
                       const talkDetails = talks[talk.id];
                       if (!talkDetails) {
                         return null;
@@ -454,7 +449,7 @@ export default function Conference() {
 
                 await engine.updateInCollection(
                   "conferences",
-                  conference?.id!,
+                  conference?.id || "",
                   conference
                 );
 

@@ -1,6 +1,6 @@
 import { buttonStyle } from "@/utils/styling";
 import clsx from "clsx";
-import { Frown, Shrimp, Shrub } from "lucide-react";
+import { Frown } from "lucide-react";
 
 export default function NotFound() {
   return (

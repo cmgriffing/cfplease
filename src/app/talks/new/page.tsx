@@ -12,7 +12,7 @@ export default function NewTalk() {
   const { engine } = useGHaaD(GAAD);
 
   function onSubmit(values: z.infer<typeof talkSchema>) {
-    engine.addToCollection("talks", values).then((talks) => {
+    engine.addToCollection("talks", values).then(() => {
       router.push("/talks");
     });
   }
