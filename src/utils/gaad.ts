@@ -67,8 +67,7 @@ export const GAAD = new Engine({
     new GithubAdapter({
       clientId: "Iv23liQdVI6HDhw9peVU",
       redirectUri: process.env.NEXT_PUBLIC_GITHUB_REDIRECT_URI!,
-      accessManagementUrl:
-        "https://github.com/apps/cfpplease/installations/new",
+      accessManagementUrl: "https://github.com/apps/cfplease/installations/new",
     }),
   ],
   collections: [conferenceCollection, talkCollection],
