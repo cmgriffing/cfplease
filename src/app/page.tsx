@@ -1,6 +1,5 @@
 "use client";
 
-import { LinkButton } from "@/components/LinkButton";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Link from "next/link";
@@ -20,7 +19,9 @@ export default function Home() {
 
         <div className="mt-8">
           <Button asChild>
-            <Link href={"/login"}>Get Started</Link>
+            <Link href={"/login"} className="text-black">
+              Get Started
+            </Link>
           </Button>
         </div>
       </div>
