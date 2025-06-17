@@ -68,7 +68,7 @@ export const GAAD = new Engine({
       clientId: "Iv23liQdVI6HDhw9peVU",
       redirectUri: process.env.NEXT_PUBLIC_GITHUB_REDIRECT_URI!,
       accessManagementUrl:
-        "https://github.com/apps/cfp-tracker/installations/new",
+        "https://github.com/apps/cfpplease/installations/new",
     }),
   ],
   collections: [conferenceCollection, talkCollection],

@@ -1,7 +1,9 @@
 "use client";
 
+import { LinkButton } from "@/components/LinkButton";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -16,8 +18,10 @@ export default function Home() {
           deadline again.
         </p>
 
-        <div>
-          <Button className={"m-2 mt-16 bg-green-100!"}>Get Started</Button>
+        <div className="mt-8">
+          <Button asChild>
+            <Link href={"/login"}>Get Started</Link>
+          </Button>
         </div>
       </div>
 
@@ -47,6 +51,43 @@ export default function Home() {
           </p>
         </Card>
       </div>
+      <div className="flex flex-col gap-4 w-full lg:px-24 items-center mt-20">
+        <h2 className="font-bold text-xl">How does it work?</h2>
+
+        <ol className="list-decimal list-inside flex flex-col gap-2">
+          <li>
+            Create an empty repository on GitHub (other providers coming soon)
+          </li>
+          <li>Go to the Settings page and &quot;Login with GitHub&quot;.</li>
+          <li>
+            You&apos;ll be redirected to GitHub to authorize CFPlease to access
+            your repositories.
+          </li>
+          <li>Once authorized, select the repository you created.</li>
+          <li>Start tracking your conferences and talks!</li>
+        </ol>
+      </div>
+      <div className="flex flex-col items-center justify-center mt-20">
+        <h2 className="font-bold text-xl mb-4">Built with Oh-My-GHaaD</h2>
+        <p className="max-w-lg">
+          CFPlease is built with{" "}
+          <a
+            className="text-blue-500 underline"
+            href="https://github.com/cmgriffing/oh-my-ghaad"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Oh-My-GHaaD
+          </a>
+          . Oh-My-GHaaD is a library to help you build apps that treat a git
+          repository as a database. The providers, like GitHub, handle the Auth,
+          Permissions, and more. You just need to provide the repository name
+          and the collections you want to use.
+        </p>
+      </div>
+      <footer className="text-center mt-20 text-xs">
+        &copy;{new Date().getFullYear()} Chris Griffing. All rights reserved.
+      </footer>
     </>
   );
 }
